@@ -37,7 +37,7 @@ print(len(data))
 selection =data.loc[(data.index >='1988-01-01')&(data.index <'2018-12-31')]
 # Check that the data was read in correctly:
 selection.head()
-
+\
 # Check how many rows of data you selected:
 print("Number of rows:", len(selection))
 
