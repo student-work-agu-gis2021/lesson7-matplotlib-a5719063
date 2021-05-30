@@ -17,6 +17,9 @@
 # - Parse dates from the column `'DATE'` and set the dates as index in the dataframe 
 
 # YOUR CODE HERE 1 to read the data into data and parse dates
+import pandas as pd
+fp="data/helsinki-vantaa.csv"
+data=pd.read_csv(fp,parse_dates=['DATE'],index_co='DATE')
 
 # This test print should print first five rows
 print(data.head())
@@ -31,7 +34,7 @@ print(len(data))
 # - Store the selection in a new variable `selection`
 
 # YOUR CODE HERE 2
-
+selection =data.loc[(data.index >='1988-01-01')&(data.index <'2018-12-31')]
 # Check that the data was read in correctly:
 selection.head()
 
