@@ -19,7 +19,7 @@
 # YOUR CODE HERE 1 to read the data into data and parse dates
 import pandas as pd
 fp="data/helsinki-vantaa.csv"
-data=pd.read_csv(fp,parse_dates=['DATE'],index_co='DATE')
+data=pd.read_csv(fp,parse_dates=['DATE'],index_col='DATE')
 
 # This test print should print first five rows
 print(data.head())
@@ -54,13 +54,20 @@ print("Number of rows:", len(selection))
 # 
 
 # YOUR CODE HERE 3
-
+import matplotlib.pyplot as plt
+selection=selection.sort_index()
+plt.plot(selection.index,selection['TEMP_C'],linestyle='solid',c='black',marker='o',markersize=3)
+plt.title("Helsinki-Vantaa Airport")
+plt.xlabel("Time")
+plt.ylabel("Temperature(Celsius)")
+plt.grid()
+plt.show()
 # Set output file name
-outputfp = ""
+outputfp = "temp_line_plot.png"
 
 # Save plot as image
 # YOUR CODE HERE 4
-
+plt.savefig(outputfp)
 import os
 
 #Check that output file exists (also open the file and check that the plot looks ok!)
